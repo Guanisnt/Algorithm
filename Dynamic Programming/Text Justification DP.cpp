@@ -14,7 +14,7 @@ using namespace std;
  *  - Where to start 2nd line
  * 3. Relate subproblem solutions
  *  - dp[i] = min(dp[j] + badness(i, j)) for all j > i
- * 4. Recursive and memoized OR build DP table bottom-up
+ * 4. Recursive and memorized OR build DP table bottom-up
  *  - topological order: i = n-1 to 0
  * 5. Solve original problem
  *  - dp[0]
