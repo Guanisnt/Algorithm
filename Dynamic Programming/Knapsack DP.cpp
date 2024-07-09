@@ -18,9 +18,9 @@ using namespace std;
 
 void knapsack(vector<int>& profit, vector<int>& weight, int W) {
     vector<vector<int>> dp(profit.size()+1, vector<int>(W+1, 0));
-    for(int i=profit.size()-1; i>=0; i--) {
+    for(int i=profit.size()-1; i>=0; i--) { 
         for(int w=0; w<=W; w++) {
-            if(w >= weight[i]) {
+            if(w >= weight[i]) {  // can take the item, and make sure w-weight[i] is not negative
                 dp[i][w] = max(dp[i+1][w], dp[i+1][w-weight[i]] + profit[i]);
             } else {
                 dp[i][w] = dp[i+1][w];
@@ -32,7 +32,7 @@ void knapsack(vector<int>& profit, vector<int>& weight, int W) {
 
 int main() {
     vector<int> profit = { 60, 100, 120 };
-    vector<int> weight = { 10, 20, 30 };
-    knapsack(profit, weight, 50);
+    vector<int> weight = { 1, 2, 3 };
+    knapsack(profit, weight, 5);
     return 0;
 }
