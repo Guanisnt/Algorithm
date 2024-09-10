@@ -109,9 +109,11 @@ vector<pair<int, int>> bruteHull(vector<pair<int, int>> a) {
     set<pair<int, int>>s;
     for (int i=0; i<a.size(); i++) {
         for (int j=i+1; j<a.size(); j++) {
+            // 檢查所有點是否在同一邊
             int x1 = a[i].first, x2 = a[j].first;
             int y1 = a[i].second, y2 = a[j].second;
 
+            // equation of the line
             int a1 = y1-y2;
             int b1 = x2-x1;
             int c1 = x1*y2-y1*x2;
@@ -120,7 +122,8 @@ vector<pair<int, int>> bruteHull(vector<pair<int, int>> a) {
                 if (a1*a[k].first+b1*a[k].second+c1 <= 0) neg++;
                 if (a1*a[k].first+b1*a[k].second+c1 >= 0) pos++;
             }
-            if(pos == a.size() || neg == a.size()) {
+            if(pos == a.size() || neg == a.size()) {  // all points are on the same side
+                // convex hull edge
                 s.insert(a[i]);
                 s.insert(a[j]);
             }
@@ -171,17 +174,31 @@ vector<pair<int, int>> divide(vector<pair<int, int>> a) {
 
 int main() {
     vector<pair<int, int> > a;
-    a.push_back(make_pair(0, 0));
-    a.push_back(make_pair(1, -4));
-    a.push_back(make_pair(-1, -5));
-    a.push_back(make_pair(-5, -3));
-    a.push_back(make_pair(-3, -1));
-    a.push_back(make_pair(-1, -3));
-    a.push_back(make_pair(-2, -2));
-    a.push_back(make_pair(-1, -1));
-    a.push_back(make_pair(-2, -1));
-    a.push_back(make_pair(-1, 1));
-
+    // a.push_back(make_pair(0, 0));
+    // a.push_back(make_pair(1, -4));
+    // a.push_back(make_pair(-1, -5));
+    // a.push_back(make_pair(-5, -3));
+    // a.push_back(make_pair(-3, -1));
+    // a.push_back(make_pair(-1, -3));
+    // a.push_back(make_pair(-2, -2));
+    // a.push_back(make_pair(-1, -1));
+    // a.push_back(make_pair(-2, -1));
+    // a.push_back(make_pair(-1, 1));
+    // [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+    // a.push_back(make_pair(1, 1));
+    // a.push_back(make_pair(2, 2));
+    // a.push_back(make_pair(2, 0));
+    // a.push_back(make_pair(2, 4));
+    // a.push_back(make_pair(3, 3));
+    // a.push_back(make_pair(4, 2));
+    // [[0,2],[1,1],[2,2],[2,4],[4,2],[3,3]]
+    a.push_back(make_pair(0, 2));
+    a.push_back(make_pair(1, 1));
+    a.push_back(make_pair(2, 2));
+    a.push_back(make_pair(2, 4));
+    a.push_back(make_pair(4, 2));
+    a.push_back(make_pair(3, 3));
+    
     int n = a.size();
 
     // sorting the set of points according
