@@ -22,7 +22,7 @@ public:
     void dijkstra(int startPoint) {
         vector<int> dist(V, INT_MAX);  // 剛開始距離都是無限大
         dist[startPoint]= 0;
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;  // <距離, 點>
         pq.push({0, startPoint});  // <距離, 點>
         while(!pq.empty()) {
             int u = pq.top().second;  // 把 pq 距離最小的點 extract 出來
