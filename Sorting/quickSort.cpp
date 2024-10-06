@@ -6,16 +6,20 @@ using namespace std;
 void QuickSort(vector<int>& a, int l, int r) {
     if(l >= r) return;
     int x = a[l];
-    int i = l, j = r;
+    int i = l;
+    int j = r;
     while(i < j) {
-        while(i < j && a[j] >= x) j--;  // 從右往左找第一個小於x的數
-        if(i < j) a[i++] = a[j];        // 把找到的數放到左邊
-        while(i < j && a[i] <= x) i++;  // 從左往右找第一個大於x的數
-        if(i < j) a[j--] = a[i];        // 把找到的數放到右邊
+        while(i < j && x < a[j]) {
+            j--;
+        }
+        if(i < j) swap(a[i++], a[j]);
+        while(i < j && x > a[i]) {
+            i++;
+        }
+        if(i < j) swap(a[i], a[j--]);
     }
-    a[i] = x;  // 把x放到中間
-    QuickSort(a, l, i-1);
-    QuickSort(a, i+1, r);
+    QuickSort(a, l, j-1);
+    QuickSort(a, j+1, r);
 }
 
 int main() {
