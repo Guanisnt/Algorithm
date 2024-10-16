@@ -44,7 +44,7 @@ int primMST(vector<vector<int>>& graph, int src) {
     }
 
     // 顯示 MST 的邊和權重
-    for (int i = 1; i < graph.size(); i++) {
+    for (int i = 0; i < graph.size(); i++) {
         if (C1[i] != -1) {
             cout << C1[i] << " - " << i << " | Weight: " << graph[i][C1[i]] << endl;
         }
