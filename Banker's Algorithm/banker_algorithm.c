@@ -10,8 +10,8 @@ need: n*m matrix, if need[i, j]=k, then T[i] may need k more instances of R[j] t
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#define MAX_PROCESSES 10
-#define MAX_RESOURCES 10
+#define MAX_PROCESSES 20
+#define MAX_RESOURCES 20
 
 int n, m;
 int avai[MAX_RESOURCES];
